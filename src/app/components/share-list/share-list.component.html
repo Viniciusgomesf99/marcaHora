@@ -1,0 +1,12 @@
+<h2 class="share-title">Compartilhe sua lista</h2>
+
+<div class="share-container">
+  <input class="share-link" type="text" [value]="listUrl" readonly>
+  
+  <div class="share-buttons">
+    <button class="whatsapp-btn" (click)="shareViaWhatsApp()">
+      <img src="assets/img/whatsapp-icon.png" alt="WhatsApp" style="filter: brightness(0);">
+    </button>
+    <button class="copy-btn" (click)="copyToClipboard()">Copiar</button>
+  </div>
+</div>

@@ -1,0 +1,305 @@
+/* Estilização geral */
+body {
+  background-color: #F5F1EB;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Estilização do contêiner principal */
+.container {
+  background-color: #F8F8F8;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  width: 100%;
+}
+
+/* Título da página */
+h1 {
+  font-family: 'Tangerine', cursive;
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Estilização do input de nome da lista */
+input[type="text"], input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  background-color: #EDEDED;
+  color: #333;
+}
+
+/* Campo de horários */
+.available-times {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.time-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: #F2F2F2;
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.time-button.selected {
+  background-color: #FFC0C0;
+  color: white;
+}
+
+.time-button:hover {
+  background-color: #DDD;
+}
+
+/* Checkbox estilos */
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+label {
+  font-size: 1.2rem;
+  margin-right: 10px;
+  color: #333;
+}
+
+/* Botão principal */
+button {
+  background-color: #FFB6B6;
+  border: none;
+  padding: 12px 30px;
+  color: white;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #FF8989;
+}
+
+/* Intervalos de horários */
+.interval-options {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.interval-button {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #FFE0E0;
+  color: #FF4D4D;
+  cursor: pointer;
+}
+
+.interval-button.selected {
+  background-color: #FFB6B6;
+  color: white;
+}
+
+.interval-button:hover {
+  background-color: #FF8989;
+  color: white;
+}
+
+/* Seções de seleção */
+.section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Estilização dos horários à direita */
+.selected-times {
+  background-color: #EAEAEA;
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+}
+
+.selected-times button {
+  background-color: #D3D3D3;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  color: #333;
+  margin: 5px;
+}
+
+.selected-times button:hover {
+  background-color: #C0C0C0;
+}
+
+/* Caixa com bordas arredondadas para cada dia */
+.box-hoursperday {
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #F9F9F9;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Estilização do cabeçalho de cada dia */
+.day-header {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Container para os checkboxes dos horários */
+.time-selection {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+/* Estilização para cada checkbox de horário */
+.time-checkbox {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  background-color: #EDEDED;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Quando o mouse passa por cima do horário */
+.time-checkbox:hover {
+  background-color: #D3D3D3;
+}
+
+/* Estilização para o input checkbox */
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+/* Estilização do label do horário */
+.time-checkbox label {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+/* Container para os dias no cabeçalho */
+.days-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  background-color: #F9F9F9;
+  border-radius: 20px 20px 0 0;
+}
+
+/* Estilo para cada dia */
+.day-item {
+  padding: 10px 20px;
+  border-radius: 15px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: 2px solid #E0E0E0;
+}
+
+.day-item.active {
+  background-color: #F28B82; /* Cor de fundo para o dia ativo */
+  color: #fff;
+}
+
+/* Caixa com bordas arredondadas para os horários */
+.box-hoursperday {
+  border-radius: 0 0 20px 20px;
+  padding: 20px;
+  background-color: #F9F9F9;
+}
+
+/* Estilização para os checkboxes de horários */
+/* Estilização para os checkboxes de horários */
+.time-selection {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 15px 0px;
+  justify-content: center;
+}
+
+.time-checkbox {
+  display: flex;
+  align-items: center;
+  padding: 5px 5px;
+  background-color: #EDEDED;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: 2px solid #E0E0E0;
+}
+
+.time-checkbox:hover {
+  background-color: #D3D3D3;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+  pointer-events: none; /* Desabilita o clique direto no checkbox */
+}
+
+.time-checkbox span {
+  font-size: 1.1rem;
+  color: #333;
+  cursor: pointer;
+}
+
+.time-checkbox label {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+/* Estilo para esconder e mostrar horários por dia */
+.active-time {
+  display: block;
+}
+
+.create-container-footer {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.create-footer-multipleSelections {
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap:14px;
+}
+
+.footerSelect {
+  min-height: 60px;
+}
+
+.box-selectDays {
+  display:flex;
+  align-items: center;
+  gap:16px;
+}

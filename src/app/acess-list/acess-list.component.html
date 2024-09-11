@@ -1,0 +1,47 @@
+<h2>Acessar Lista de Horários</h2>
+
+<div>
+  <label for="listId">ID da Lista:</label>
+  <input type="text" [(ngModel)]="listId" placeholder="ID da Lista" required />
+</div>
+
+<div>
+  <label for="password">Senha da Lista:</label>
+  <input type="password" [(ngModel)]="listPassword" maxlength="20" placeholder="Senha da Lista" required />
+</div>
+
+<!-- Exibe uma mensagem de erro se a senha ou ID da lista for inválida -->
+<div *ngIf="errorMessage" class="error-message">
+  {{ errorMessage }}
+</div>
+
+<!-- Botão para acessar a lista -->
+<button (click)="accessList()">Acessar Lista</button>
+
+<!-- Exibe informações da lista após o acesso -->
+<div *ngIf="list">
+  <h3>Nome da Lista: {{ list.name }}</h3>
+
+  <h4>Horários Disponíveis:</h4>
+  <ul>
+    <li *ngFor="let day of list.days">
+      <strong>{{ day }}:</strong>
+      <ul>
+        <li *ngFor="let time of list.availableTimes[day]">{{ time }}</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h4>Horários Reservados:</h4>
+  <ul>
+    <li *ngFor="let reservation of list.reservations">
+      <strong>{{ reservation.user }}:</strong>
+      <ul>
+        <li *ngFor="let time of reservation.times">{{ time }}</li>
+      </ul>
+    </li>
+  </ul>
+
+  <!-- Botão para encerrar a lista -->
+  <button (click)="endList()">Encerrar Lista</button>
+</div>

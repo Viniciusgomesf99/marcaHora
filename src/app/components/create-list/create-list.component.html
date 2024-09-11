@@ -1,0 +1,67 @@
+<section class="list-create">
+  <header class="create-header">
+    <!-- Nome da lista -->
+    <input type="text" [(ngModel)]="listName" placeholder="Nome da lista" />
+    
+    <!-- Campo para definir a senha da lista -->
+    <div>
+      <input type="password" [(ngModel)]="listPassword" placeholder="Senha da lista" />
+    </div>
+  </header>
+  <div class="create-days">
+    <!-- Calendar picker para seleção de dias -->
+    <div class="box-selectDays">
+      <label>Selecione os dias:</label>
+      <input type="date" [(ngModel)]="selectedDay" />
+      <button (click)="addDay(selectedDay)">Adicionar Dia</button>
+      <ul>
+        <li *ngFor="let day of selectedDays">{{ day }} <button (click)="removeDay(day)">Remover</button></li>
+      </ul>
+    </div>
+  </div>
+  <div class="create-container-selection">
+    <div class="days-container">
+      <div *ngFor="let day of selectedDays" class="day-item" [ngClass]="{'active': day === selectedDay}" (click)="selectDay(day)">
+        {{ day }}
+      </div>
+    </div>
+    
+    <!-- Seleção de horários por dia -->
+    <div class="box-hoursperday">
+      <div *ngFor="let day of selectedDays" [ngClass]="{'active-time': day === selectedDay}" class="time-selection" [style.display]="day === selectedDay ? 'grid' : 'none'">
+        <label *ngFor="let time of availableTimes" class="time-checkbox">
+          <input type="checkbox" [value]="time" (change)="toggleTimeSelectionForDay(day, time, $event)" />
+          <span>{{ time }}</span>
+        </label>
+      </div>
+    </div>
+  </div>
+  
+  <div class="create-container-footer">
+    <div class="create-footer-multipleSelections footerSelect" style="min-width: 403px;">
+      <div>
+        <!-- Permitir mais de um horário por pessoa -->
+        <label>
+          <input type="checkbox" [(ngModel)]="allowMultipleSelections" />
+          Permitir mais de um horário por pessoa
+        </label>
+      </div>
+      
+      <!-- Campo para definir o limite de horários, só visível se a opção estiver ativada -->
+      <div *ngIf="allowMultipleSelections">
+        <label>Quantos horários por pessoa:</label>
+        <input type="number" [(ngModel)]="maxSelectionsPerPerson" min="1" placeholder="Defina o limite" />
+      </div>
+    </div>
+    
+    <!-- Permitir múltiplas reservas -->
+    <div class="footerSelect">
+      <label>
+        <input type="checkbox" [(ngModel)]="allowMultipleBookings" />
+        Permitir que um horário seja escolhido mais de uma vez
+      </label>
+    </div>
+    <!-- Botão para criar a lista -->
+    <button class="footerSelect" (click)="createList()">Criar Lista</button>
+  </div>
+</section>

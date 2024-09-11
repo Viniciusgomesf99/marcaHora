@@ -1,0 +1,17 @@
+<h2 class="list-title">{{ list?.name }}</h2>
+
+<div *ngFor="let day of list?.daysAndTimes | keyvalue" class="day-container">
+  <h3 class="day-title">{{ day.key }}</h3>
+  <ul *ngIf="day.value && day.value.length > 0" class="time-list">
+    <li *ngFor="let timeObj of day.value" class="time-item">
+      <span class="time-text">{{ timeObj.time }}</span>
+      <button 
+        class="reserve-btn"
+        (click)="reserveTime(day.key, timeObj.time)" 
+        [disabled]="timeObj.remaining === 0 || selectedTimesForPerson.includes(timeObj.time)">
+        Reservar
+      </button>
+    </li>
+  </ul>
+  <p *ngIf="!day.value || day.value.length === 0" class="no-time-msg">Nenhum horário disponível para este dia.</p>
+</div>

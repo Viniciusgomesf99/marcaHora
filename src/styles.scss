@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #E8E5E0;
+}
+
+@font-face {
+  font-family: "Fredericka";
+  src: url("/assets/fontes/FrederickatheGreat-Regular.ttf") format("ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+main {
+  max-width: 1200px;
+  margin:60px auto 0px auto;
+  display:flex;
+  flex-direction: column;
+  gap:48px;
+}
+
+main > header {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap:5px;
+}
+
+main > header > h1 {
+  font-family: "Fredericka the Great", serif;
+  font-size: 64px;
+  color: #000;
+}
+
+main > header > img {
+  width: 89px;
+  height: 88px;
+  object-fit: cover;
+}
