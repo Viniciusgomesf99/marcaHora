@@ -17,7 +17,6 @@ export class CreateListComponent {
   selectedDays: string[] = [];
   selectedDay: string = '';
   selectedTimes: string[] = [];
-  allowMultipleBookings: boolean = false;
   allowMultipleSelections: boolean = false;
   customTime: string = '';
   maxSelectionsPerPerson: number = 1;
@@ -100,7 +99,6 @@ export class CreateListComponent {
       password: this.listPassword,  // Inclui a senha
       days: this.selectedDays,
       daysAndTimes: this.selectedDaysAndTimes, // Dias e horários por dia
-      allowMultipleBookings: this.allowMultipleBookings,
       allowMultipleSelections: this.allowMultipleSelections,
       maxSelectionsPerPerson: this.allowMultipleSelections ? this.maxSelectionsPerPerson : 1 // Garante o valor padrão
     };

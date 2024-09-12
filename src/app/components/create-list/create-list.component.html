@@ -53,14 +53,7 @@
         <input type="number" [(ngModel)]="maxSelectionsPerPerson" min="1" placeholder="Defina o limite" />
       </div>
     </div>
-    
-    <!-- Permitir múltiplas reservas -->
-    <div class="footerSelect">
-      <label>
-        <input type="checkbox" [(ngModel)]="allowMultipleBookings" />
-        Permitir que um horário seja escolhido mais de uma vez
-      </label>
-    </div>
+
     <!-- Botão para criar a lista -->
     <button class="footerSelect" (click)="createList()">Criar Lista</button>
   </div>
