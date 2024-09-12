@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ListService {
-  private apiUrl = 'https://marca-hora-backend.vercel.app/'; // URL do backend
+  private apiUrl = 'https://marca-hora-backend.vercel.app'; // URL do backend
 
   constructor(private http: HttpClient) { }
 
