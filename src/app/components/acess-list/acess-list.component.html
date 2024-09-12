@@ -44,11 +44,11 @@
       <ul class="reservation-list">
         <li *ngFor="let day of list.daysAndTimes | keyvalue">
           <strong>{{ day.key }}:</strong>
-          <ul>
+          <ul class="reservation-list-itens">
             <li *ngFor="let time of day.value">
               <ul *ngIf="time.reservedBy.length > 0">
                 <li *ngFor="let person of time.reservedBy">
-                  Reservado por: {{ person.userName }} ({{ person.cpf }})
+                  {{ time }} Reservado por: {{ person.userName }} ({{ person.cpf }})
                 </li>
               </ul>
             </li>
