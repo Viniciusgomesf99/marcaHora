@@ -5,7 +5,7 @@ import { CreateListComponent } from './components/create-list/create-list.compon
 import { ViewListComponent } from './components/view-list/view-list.component';
 import { ShareListComponent } from './components/share-list/share-list.component';
 import { SearchListComponent } from './components/search-list/search-list.component';
-import { AccessListComponent } from './acess-list/acess-list.component';
+import { AccessListComponent } from './components/acess-list/acess-list.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
