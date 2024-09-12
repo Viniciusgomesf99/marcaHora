@@ -1,8 +1,18 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ListService } from '../../services/list.service';
+
+interface TimeSlot {
+  time: string;
+  remaining: number;
+  reservedBy: Array<{ userName: string; cpf: string }>;
+}
+
+interface DaysAndTimes {
+  [key: string]: TimeSlot[];
+}
 
 @Component({
   selector: 'app-access-list',
@@ -14,7 +24,7 @@ import { ListService } from '../../services/list.service';
 export class AccessListComponent {
   listPassword: string = '';
   listId: string = '';
-  list: any;
+  list: { name: string; daysAndTimes: DaysAndTimes } | null = null;
   errorMessage: string = '';
 
   constructor(private listService: ListService, private router: Router) {}
@@ -39,7 +49,7 @@ export class AccessListComponent {
         alert('Lista encerrada com sucesso!');
         this.router.navigate(['/']); // Navega para a página inicial
       },
-      (error: { error: { message: string; }; }) => {
+      (error: { error: { message: string } }) => {
         alert('Erro ao encerrar a lista: ' + error.error.message);
       }
     );

@@ -1,47 +1,63 @@
 <h2>Acessar Lista de Horários</h2>
 
-<div>
+<div class="access-form">
   <label for="listId">ID da Lista:</label>
   <input type="text" [(ngModel)]="listId" placeholder="ID da Lista" required />
-</div>
 
-<div>
   <label for="password">Senha da Lista:</label>
   <input type="password" [(ngModel)]="listPassword" maxlength="20" placeholder="Senha da Lista" required />
-</div>
 
-<!-- Exibe uma mensagem de erro se a senha ou ID da lista for inválida -->
-<div *ngIf="errorMessage" class="error-message">
-  {{ errorMessage }}
-</div>
+  <!-- Exibe uma mensagem de erro se a senha ou ID da lista for inválida -->
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
 
-<!-- Botão para acessar a lista -->
-<button (click)="accessList()">Acessar Lista</button>
+  <!-- Botão para acessar a lista -->
+  <button class="access-btn" (click)="accessList()">Acessar Lista</button>
+</div>
 
 <!-- Exibe informações da lista após o acesso -->
-<div *ngIf="list">
+<div *ngIf="list" class="list-container">
   <h3>Nome da Lista: {{ list.name }}</h3>
 
-  <h4>Horários Disponíveis:</h4>
-  <ul>
-    <li *ngFor="let day of list.days">
-      <strong>{{ day }}:</strong>
-      <ul>
-        <li *ngFor="let time of list.availableTimes[day]">{{ time }}</li>
+  <div class="time-info-container">
+    <!-- Coluna de horários disponíveis -->
+    <div class="time-column">
+      <h4>Horários Disponíveis:</h4>
+      <ul class="time-list">
+        <li *ngFor="let day of list.daysAndTimes | keyvalue">
+          <strong>{{ day.key }}:</strong>
+          <ul>
+            <li *ngFor="let time of day.value" class="time-item" [ngClass]="{'full': time.remaining === 0}">
+              <span>{{ time.time }}</span> - 
+              <span *ngIf="time.remaining > 0">Disponível ({{ time.remaining }} restantes)</span>
+              <span *ngIf="time.remaining === 0">Esgotado</span>
+            </li>
+          </ul>
+        </li>
       </ul>
-    </li>
-  </ul>
+    </div>
 
-  <h4>Horários Reservados:</h4>
-  <ul>
-    <li *ngFor="let reservation of list.reservations">
-      <strong>{{ reservation.user }}:</strong>
-      <ul>
-        <li *ngFor="let time of reservation.times">{{ time }}</li>
+    <!-- Coluna de horários reservados -->
+    <div class="time-column">
+      <h4>Horários Reservados:</h4>
+      <ul class="reservation-list">
+        <li *ngFor="let day of list.daysAndTimes | keyvalue">
+          <strong>{{ day.key }}:</strong>
+          <ul>
+            <li *ngFor="let time of day.value">
+              <ul *ngIf="time.reservedBy.length > 0">
+                <li *ngFor="let person of time.reservedBy">
+                  Reservado por: {{ person.userName }} ({{ person.cpf }})
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
       </ul>
-    </li>
-  </ul>
+    </div>
+  </div>
 
   <!-- Botão para encerrar a lista -->
-  <button (click)="endList()">Encerrar Lista</button>
+  <button class="end-btn" (click)="endList()">Encerrar Lista</button>
 </div>

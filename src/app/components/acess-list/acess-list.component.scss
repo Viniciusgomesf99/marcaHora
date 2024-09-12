@@ -1,0 +1,92 @@
+.access-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 20px auto;
+  gap: 10px;
+}
+
+.access-form input {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.access-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.access-btn:hover {
+  background-color: #45a049;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.list-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.time-info-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.time-column {
+  width: 48%;
+}
+
+.time-list, .reservation-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.time-list li, .reservation-list li {
+  margin-bottom: 10px;
+}
+
+.time-item {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.time-item.full {
+  background-color: #ffdddd;
+  border-color: #ff6b6b;
+}
+
+.end-btn {
+  background-color: #f44336;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.end-btn:hover {
+  background-color: #e53935;
+}

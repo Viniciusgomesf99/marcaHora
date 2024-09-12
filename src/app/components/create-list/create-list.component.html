@@ -28,6 +28,26 @@
     
     <!-- Seleção de horários por dia -->
     <div class="box-hoursperday">
+      <!-- Botão para alterar os intervalos de tempo -->
+      <!-- Botão para alterar os intervalos de tempo -->
+      <div class="interval-selection">
+        <label>Alterar intervalo entre horários:</label>
+        <select (change)="changeInterval($event)">
+          <option value="30">30 minutos</option>
+          <option value="15">15 minutos</option>
+          <option value="10">10 minutos</option>
+          <option value="5">5 minutos</option>
+        </select>
+        <div class="add-custom-time">
+          <label for="customTime">Adicionar horário personalizado:</label>
+          <div class="custom-time-options">
+            <input type="time" [(ngModel)]="customTime" placeholder="Digite o horário" />
+            <button (click)="addCustomTime()">+</button>
+          </div>
+        </div>
+      </div>
+
+
       <div *ngFor="let day of selectedDays" [ngClass]="{'active-time': day === selectedDay}" class="time-selection" [style.display]="day === selectedDay ? 'grid' : 'none'">
         <label *ngFor="let time of availableTimes" class="time-checkbox">
           <input type="checkbox" [value]="time" (change)="toggleTimeSelectionForDay(day, time, $event)" />

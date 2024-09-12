@@ -57,10 +57,22 @@ export class CreateListComponent {
     return selectedTimesForPerson.length === 0;
   }
 
-  // Função para alternar intervalo entre horários
-  changeInterval(minutes: number) {
-    this.availableTimes = this.generateTimes(minutes);
-  }
+    // Função para alternar intervalo entre horários
+    changeInterval(event: Event) {
+      const target = event.target as HTMLSelectElement;
+      
+      if (target && target.value) {
+        const minutes = parseInt(target.value, 10);
+        const previousSelectedTimes = this.selectedDaysAndTimes[this.selectedDay] || [];
+        
+        this.availableTimes = this.generateTimes(minutes);
+        
+        // Manter os horários já selecionados
+        this.selectedDaysAndTimes[this.selectedDay] = previousSelectedTimes.filter(time => this.availableTimes.includes(time));
+      }
+    }
+
+
 
   addDay(day: string) {
     if (day && !this.selectedDays.includes(day)) {
@@ -86,10 +98,14 @@ export class CreateListComponent {
     }
   }
 
+  // Função para adicionar horário personalizado
   addCustomTime() {
     if (this.customTime && !this.availableTimes.includes(this.customTime)) {
-      this.availableTimes.push(this.customTime); // Adiciona o horário personalizado à lista de horários
+      this.availableTimes.push(this.customTime); // Adiciona o horário à lista de disponíveis
+      this.availableTimes.sort(); // Ordena os horários após adicionar
+      this.selectedDaysAndTimes[this.selectedDay].push(this.customTime); // Adiciona o horário ao dia atual
     }
+    this.customTime = ''; // Limpa o campo após adicionar
   }
 
   createList() {

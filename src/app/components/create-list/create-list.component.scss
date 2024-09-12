@@ -304,9 +304,38 @@ input[type="checkbox"] {
   gap:16px;
 }
 
+select {
+  border-radius: 8px;
+  padding:5px 5px;
+}
+input {
+  border-radius: 8px;
+  padding:5px 5px;
+}
+.add-custom-time {
+  display:flex;
+  align-items: center;
+  gap:12px;
+  margin-bottom: 12px;
+}
+
+.custom-time-options {
+  display:flex;
+  align-items: center;
+  gap:12px;
+}
+
 @media (max-width:769px) {
   .time-selection {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .custom-time-options {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:6px;
   }
 
   .box-selectDays {
