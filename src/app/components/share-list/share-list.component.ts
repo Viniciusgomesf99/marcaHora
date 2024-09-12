@@ -14,7 +14,7 @@ export class ShareListComponent implements OnInit {
 
   ngOnInit() {
     const listId = this.route.snapshot.paramMap.get('id');
-    this.listUrl = `http://localhost:4200/view-list/${listId}`;
+    this.listUrl = `https://marca-hora.vercel.app/view-list/${listId}`;
   }
 
   copyToClipboard() {
