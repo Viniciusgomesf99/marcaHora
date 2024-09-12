@@ -75,7 +75,7 @@ export class ViewListComponent implements OnInit {
     }
   
     const userName = prompt('Digite seu primeiro nome:');
-    const cpf = prompt('Digite seu CPF:');
+    const cpf = prompt('Digite seu número de matricula (RA):');
   
     if (userName && cpf && this.list) {
       if (!this.selectedTimesPerList[this.list.id]) {
