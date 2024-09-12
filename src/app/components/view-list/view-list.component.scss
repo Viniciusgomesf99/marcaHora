@@ -65,6 +65,8 @@
 .reserve-btn:disabled {
   background-color: #ddd;
   cursor: not-allowed;
+  color: #ff6b6b;
+  border:1px solid #ff6b6b;
 }
 
 .no-time-msg {
