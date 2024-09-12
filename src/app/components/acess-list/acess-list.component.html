@@ -48,7 +48,7 @@
             <li *ngFor="let time of day.value">
               <ul *ngIf="time.reservedBy.length > 0">
                 <li *ngFor="let person of time.reservedBy">
-                  {{ time }} Reservado por: {{ person.userName }} ({{ person.cpf }})
+                  {{ time.time }} Reservado por: {{ person.userName }} ({{ person.cpf }})
                 </li>
               </ul>
             </li>
