@@ -1,7 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-body {
-  background-color: #E8E5E0;
-}
 
 @font-face {
   font-family: "Fredericka";
@@ -9,6 +6,27 @@ body {
   font-style: normal;
   font-weight: 400;
   font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins-Regular";
+  src: url("/assets/fontes/Poppins-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins-Bold";
+  src: url("/assets/fontes/Poppins-Bold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+body {
+  background-color: #E8E5E0;
+  font-family: 'Poppins-Regular';
 }
 
 main {

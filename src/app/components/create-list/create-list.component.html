@@ -13,7 +13,7 @@
     <div class="box-selectDays">
       <label>Selecione os dias:</label>
       <input type="date" [(ngModel)]="selectedDay" />
-      <button (click)="addDay(selectedDay)">Adicionar Dia</button>
+      <button (click)="addDay(selectedDay)">Adicionar</button>
       <ul>
         <li *ngFor="let day of selectedDays">{{ day }} <button (click)="removeDay(day)">Remover</button></li>
       </ul>

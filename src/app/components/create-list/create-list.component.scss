@@ -303,3 +303,21 @@ input[type="checkbox"] {
   align-items: center;
   gap:16px;
 }
+
+@media (max-width:769px) {
+  .time-selection {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .box-selectDays {
+    flex-direction: column;
+  }
+
+  .footerSelect {
+    min-width: unset;
+  }
+  
+  .create-header {
+    padding: 0px 20px 0px 0px;
+  }
+}
