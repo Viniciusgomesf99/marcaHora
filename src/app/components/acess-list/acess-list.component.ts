@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ListService } from '../services/list.service';
+import { ListService } from '../../services/list.service';
 
 @Component({
   selector: 'app-access-list',
