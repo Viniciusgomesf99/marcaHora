@@ -74,9 +74,10 @@ export class ViewListComponent implements OnInit {
       return;
     }
   
-    const userName = prompt('Digite seu nome para reservar o horário');
+    const userName = prompt('Digite seu primeiro nome:');
+    const cpf = prompt('Digite seu CPF:');
   
-    if (userName && this.list) {
+    if (userName && cpf && this.list) {
       if (!this.selectedTimesPerList[this.list.id]) {
         this.selectedTimesPerList[this.list.id] = [];
       }
@@ -87,7 +88,7 @@ export class ViewListComponent implements OnInit {
         return;
       }
   
-      this.listService.reserveTime(this.list.id, day, time, userName).subscribe(response => {
+      this.listService.reserveTime(this.list.id, day, time, userName, cpf).subscribe(response => {
         alert(response.message);
   
         // Armazena o horário reservado pelo usuário
@@ -106,24 +107,8 @@ export class ViewListComponent implements OnInit {
           }
         }
       }, error => {
-        // Agora capturamos e mostramos a mensagem de erro enviada pelo backend
         const errorMessage = error.error?.message || 'Erro ao reservar o horário.';
         alert(errorMessage);
-  
-        // Atualiza a lista de horários mesmo em caso de erro
-        const timeSlotArray = this.list!.daysAndTimes[day];
-        if (timeSlotArray) {
-          const timeSlotIndex = timeSlotArray.findIndex(t => t.time === time);
-          if (timeSlotIndex > -1) {
-            timeSlotArray[timeSlotIndex].remaining -= 1;
-  
-            if (timeSlotArray[timeSlotIndex].remaining === 0) {
-              timeSlotArray.splice(timeSlotIndex, 1); // Remove o horário se não houver mais reservas
-            }
-          }
-        }
-  
-        console.error(error);
       });
     }
   }  
