@@ -20,8 +20,8 @@ export class ListService {
     return this.http.get(`${this.apiUrl}/view-list/${id}`);
   }
   
-  reserveTime(listId: string, day: string, time: string, userName: string): Observable<any> {
-    const reservationData = { listId, day, time, userName };
+  reserveTime(listId: string, day: string, time: string, userName: string, cpf:string): Observable<any> {
+    const reservationData = { listId, day, time, userName, cpf };
     return this.http.post(`${this.apiUrl}/reserve-time`, reservationData);
   }
 
